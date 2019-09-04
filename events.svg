@@ -1,0 +1,228 @@
+<svg id="chip" width="1024px" height="720px"
+xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+
+    <style>
+    <![CDATA[
+        @-webkit-keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        .path {
+            animation: draw 10s linear infinite;
+            stroke-dasharray: 100, 10, 200, 10;
+            stroke-dashoffset: 1000;
+            -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+        }
+    ]]>
+    </style>
+
+    <script>
+    <![CDATA[
+        function eventClick(event) {
+            // Get the clicked event
+            var image = event.target;
+
+            // Copying the clicked event in the center square
+            var href = image.getAttributeNS('http://www.w3.org/1999/xlink', 'href');
+            var logo = document.getElementById('centerlogo');
+            logo.setAttribute('href', href);
+            logo.setAttribute('height', '200');
+            logo.setAttribute('width', '200');
+            logo.setAttribute('x', '410');
+            logo.setAttribute('y', '260');
+        }
+
+        function eventHover(event) {
+            // Get the clicked event
+            var image = event.target;
+
+            // Highlight the links
+            var image_id = image.getAttribute('id');
+            var polyline_id = image_id + "-line";
+            var polyline = document.getElementById(polyline_id);
+            polyline.setAttribute('stroke-width', '5');
+            polyline.setAttribute('filter', "url(#glow)");
+            // var center_rect = document.querySelector('rect');
+            // center_rect.setAttribute('filter', "url(#glow)");
+
+            // Copying the clicked event in the center square
+            var href = image.getAttributeNS('http://www.w3.org/1999/xlink', 'href');
+            var logo = document.getElementById('centerlogo');
+            logo.setAttribute('href', href);
+            logo.setAttribute('height', '200');
+            logo.setAttribute('width', '200');
+            logo.setAttribute('x', '410');
+            logo.setAttribute('y', '260');
+        }
+
+        function eventMouseOut(event) {
+            // Get the clicked event
+            var image = event.target;
+
+            // Highlight the links
+            var image_id = image.getAttribute('id');
+            var polyline_id = image_id + "-line";
+            var polyline = document.getElementById(polyline_id);
+            polyline.setAttribute('stroke-width', '1.5');
+            polyline.setAttribute('filter', "none");
+            // var center_rect = document.querySelector('rect');
+            // center_rect.setAttribute('filter', "none");
+
+            // Copying the clicked event in the center square
+            var logo = document.getElementById('centerlogo');
+            logo.setAttribute('href', 'images/Logo.png');
+            logo.setAttribute('height', '130');
+            logo.setAttribute('width', '150');
+            logo.setAttribute('x', '437');
+            logo.setAttribute('y', '295');
+        }
+    ]]>
+    </script>
+
+    <defs>
+        <filter id="glow" width="100%" height="100%" x="0" y="0" filterUnits="userSpaceOnUse">
+            <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="5"/>
+            <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+            <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter2"/>
+            <feGaussianBlur in="shadowOffsetOuter2" result="shadowBlurOuter2" stdDeviation="7"/>
+            <feColorMatrix in="shadowBlurOuter2" result="shadowMatrixOuter2" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.9 0"/>
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter3"/>
+            <feGaussianBlur in="shadowOffsetOuter3" result="shadowBlurOuter3" stdDeviation="10"/>
+            <feColorMatrix in="shadowBlurOuter3" result="shadowMatrixOuter3" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.8 0"/>
+            <feOffset dx="2" dy="2" in="SourceAlpha" result="shadowOffsetOuter4"/>
+            <feGaussianBlur in="shadowOffsetOuter4" result="shadowBlurOuter4" stdDeviation="1"/>
+            <feColorMatrix in="shadowBlurOuter4" result="shadowMatrixOuter4" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.69678442 0"/>
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter5"/>
+            <feGaussianBlur in="shadowOffsetOuter5" result="shadowBlurOuter5" stdDeviation="8"/>
+            <feColorMatrix in="shadowBlurOuter5" result="shadowMatrixOuter5" values="0 0 0 0 0.314369351 0 0 0 0 0.8883757 0 0 0 0 0.759899616 0 0 0 0.649371603 0"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"/>
+                <feMergeNode in="shadowMatrixOuter2"/>
+                <feMergeNode in="shadowMatrixOuter3"/>
+                <feMergeNode in="shadowMatrixOuter4"/>
+                <feMergeNode in="shadowMatrixOuter5"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <g id="circuit">
+        <!-- Credenz Logo -->
+        <rect x="437" y="285" rx="20" ry="20" width="150" height="150"
+        stroke="green" stroke-width="2" fill="none"/>
+        <image id="centerlogo" x="437" y="295" width="150" height="130"
+        xlink:href="images/Logo.png"/>
+
+        <!-- Left lines -->
+        <!-- BPlan -->
+        <polyline class="path" id="bplan-line" points="437,315 330,315 330,195 270,195"
+        style="fill:none;" stroke="green" stroke-width="1.5"/>
+        <animate class="anim1" xlink:href=".path" attributeName="stroke-dashoffset" from="3000" to="0" dur="10s" begin="indefinite" fill="freeze" id="anim"/>
+        <image id="bplan" x="170" y="145" width="100" height="100"
+        xlink:href="images/bplan.png" onclick="eventClick(evt);" onmouseover="eventHover(evt);" onmouseout="eventMouseOut(evt);"/>
+        <circle cx="220" cy="195" r="50" stroke="green" stroke-width="3" fill="url(#bplan)"/>
+        <!-- Clash -->
+        <polyline class="path" id="clash-line" points="437,345 300,345 300,305 270,305"
+        style="fill:none;" stroke="green" stroke-width="1.5" />
+        <image id="clash" x="170" y="255" width="100" height="100"
+        xlink:href="images/clash.png" onclick="eventClick(evt);" onmouseover="eventHover(evt);" onmouseout="eventMouseOut(evt);"/>
+        <circle cx="220" cy="305" r="50" stroke="green" stroke-width="3" fill="url(#clash)"/>
+        <!-- Contraption -->
+        <polyline class="path" id="contraption-line" points="437,375 300,375 300,415 270,415"
+        style="fill:none;" stroke="green" stroke-width="1.5" />
+        <image id="contraption" x="170" y="365" width="100" height="100"
+        xlink:href="images/contraption.png" onclick="eventClick(evt);" onmouseover="eventHover(evt);" onmouseout="eventMouseOut(evt);"/>
+        <circle cx="220" cy="415" r="50" stroke="green" stroke-width="3" fill="url(#contraption)"/>
+        <!-- cretronix -->
+        <polyline class="path" id="cretronix-line"  points="437,405 330,405 330,525 270,525"
+        style="fill:none;" stroke="green" stroke-width="1.5" />
+        <image id="cretronix" x="170" y="475" width="100" height="100"
+        xlink:href="images/cretronix.png" onclick="eventClick(evt);" onmouseover="eventHover(evt);" onmouseout="eventMouseOut(evt);"/>
+        <circle cx="220" cy="525" r="50" stroke="green" stroke-width="3" fill="url(#cretronix)"/>
+
+        <!-- Right lines -->
+        <!-- NTH -->
+        <polyline class="path" id="nth-line" points="587,315 694,315 694,195 754,195"
+        style="fill:none;" stroke="green" stroke-width="1.5" />
+        <image id="nth" x="754" y="145" width="100" height="100"
+        xlink:href="images/nth.png" onclick="eventClick(evt);" onmouseover="eventHover(evt);" onmouseout="eventMouseOut(evt);"/>
+        <circle cx="804" cy="195" r="50" stroke="green" stroke-width="3" fill="url(#nth)"/>
+        <!-- quiz -->
+        <polyline class="path" id="quiz-line" points="587,345 724,345 724,305 754,305"
+        style="fill:none;" stroke="green" stroke-width="1.5" />
+        <image id="quiz" x="754" y="255" width="100" height="100"
+        xlink:href="images/quiz.png" onclick="eventClick(evt);" onmouseover="eventHover(evt);" onmouseout="eventMouseOut(evt);"/>
+        <circle cx="804" cy="305" r="50" stroke="green" stroke-width="3" fill="url(#quiz)"/>
+        <!-- Reverse coding -->
+        <polyline class="path" id="rc-line"  points="587,375 724,375 724,415 754,415"
+        style="fill:none;" stroke="green" stroke-width="1.5" />
+        <image id="rc" x="754" y="365" width="100" height="100"
+        xlink:href="images/revb.png" onclick="eventClick(evt);" onmouseover="eventHover(evt);" onmouseout="eventMouseOut(evt);"/>
+        <circle cx="804" cy="415" r="50" stroke="green" stroke-width="3" fill="url(#rc)"/>
+        <!-- Roboliga -->
+        <polyline class="path" id="roboliga-line" points="587,405 694,405 694,525 754,525"
+        style="fill:none;" stroke="green" stroke-width="1.5" />
+        <image id="roboliga" x="754" y="475" width="100" height="100"
+        xlink:href="images/roboliga.png" onclick="eventClick(evt);" onmouseover="eventHover(evt);" onmouseout="eventMouseOut(evt);"/>
+        <circle cx="804" cy="525" r="50" stroke="green" stroke-width="3" fill="url(#roboliga)"/>
+
+        <!-- Top lines -->
+        <!-- wallstreet -->
+        <polyline class="path" id="wallstreet-line" points="467,285 467,178 347,178 347,118"
+        style="fill:none;" stroke="green" stroke-width="1.5" />
+        <image id="wallstreet" x="297" y="18" width="100" height="100"
+        xlink:href="images/stockwhite.png" onclick="eventClick(evt);" onmouseover="eventHover(evt);" onmouseout="eventMouseOut(evt);"/>
+        <circle cx="347" cy="68" r="50" stroke="green" stroke-width="3" fill="url(#wallstreet)"/>
+        <!-- webweaver -->
+        <polyline class="path" id="web-line" points="497,285 497,147 457,147 457,118"
+        style="fill:none;" stroke="green" stroke-width="1.5" />
+        <image id="web" x="407" y="18" width="100" height="100"
+        xlink:href="images/web.png" onclick="eventClick(evt);" onmouseover="eventHover(evt);" onmouseout="eventMouseOut(evt);"/>
+        <circle cx="457" cy="68" r="50" stroke="green" stroke-width="3" fill="url(#web)"/>
+        <!-- xodia -->
+        <polyline class="path" id="xodia-line" points="527,285 527,147 567,147 567,118"
+        style="fill:none;" stroke="green" stroke-width="1.5" />
+        <image id="xodia" x="517" y="18" width="100" height="100"
+        xlink:href="images/xodia.png" onclick="eventClick(evt);" onmouseover="eventHover(evt);" onmouseout="eventMouseOut(evt);"/>
+        <circle cx="567" cy="68" r="50" stroke="green" stroke-width="3" fill="url(#xodia)"/>
+        <!-- Paper presentation -->
+        <polyline class="path" id="paper-line" points="557,285 557,178 677,178 677,118"
+        style="fill:none;" stroke="green" stroke-width="1.5" />
+        <image id="paper" x="627" y="18" width="100" height="100"
+        xlink:href="images/paper.png" onclick="eventClick(evt);" onmouseover="eventHover(evt);" onmouseout="eventMouseOut(evt);"/>
+        <circle cx="677" cy="68" r="50" stroke="green" stroke-width="3" fill="url(#paper)"/>
+
+        <!-- Bottom lines -->
+        <!-- Enigma -->
+        <polyline class="path" id="enigma-line" points="467,435 467,542 347,542 347,602"
+        style="fill:none;" stroke="green" stroke-width="1.5" />
+        <image id="enigma" x="297" y="602" width="100" height="100"
+        xlink:href="images/enigma.png" onclick="eventClick(evt);" onmouseover="eventHover(evt);" onmouseout="eventMouseOut(evt);"/>
+        <circle cx="347" cy="652" r="50" stroke="green" stroke-width="3" fill="url(#enigma)"/>
+        <!-- Datawiz -->
+        <polyline class="path" id="datawiz-line" points="497,435 497,573 457,573 457,602"
+        style="fill:none;" stroke="green" stroke-width="1.5" />
+        <image id="datawiz" x="407" y="602" width="100" height="100"
+        xlink:href="images/datawizwhite.png" onclick="eventClick(evt);" onmouseover="eventHover(evt);" onmouseout="eventMouseOut(evt);"/>
+        <circle cx="457" cy="652" r="50" stroke="green" stroke-width="3" fill="url(#datawiz)"/>
+        <!-- Pixlate -->
+        <polyline class="path" id="pixelate-line" points="527,435 527,573 567,573 567,602"
+        style="fill:none;" stroke="green" stroke-width="1.5" />
+        <image id="pixelate" x="517" y="602" width="100" height="100"
+        xlink:href="images/pixelate.png" onclick="eventClick(evt);" onmouseover="eventHover(evt);" onmouseout="eventMouseOut(evt);"/>
+        <circle cx="567" cy="652" r="50" stroke="green" stroke-width="3" fill="url(#pixelate)"/>
+        <!-- Workshops -->
+        <polyline class="path" id="workshop-line" points="557,435 557,542 677,542 677,602"
+        style="fill:none;" stroke="green" stroke-width="1.5" />
+        <image id="workshop" x="627" y="602" width="100" height="100"
+        xlink:href="images/workshop.png" onclick="eventClick(evt);" onmouseover="eventHover(evt);" onmouseout="eventMouseOut(evt);"/>
+        <circle cx="677" cy="652" r="50" stroke="green" stroke-width="3" fill="url(#workshop)"/>
+    </g>
+</svg>
