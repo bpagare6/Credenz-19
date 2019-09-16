@@ -1,0 +1,404 @@
+.navManu {
+  /*width: 100vw;
+      height: 100vh;*/
+  position: fixed;
+  float: left;
+  backface-visibility: hidden;
+  margin: 0;
+  background: #000;
+  z-index: 4 !important;
+}
+
+.navManuContainer {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  /*height: 100vh;
+      display: block;
+      opacity: 1;*/
+  margin-left: -100vw;
+  background: #454b69; /* rgba(0,0,0,0.95); */
+  transition: all 700ms;
+}
+.navManuContainer .innerContainer {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+}
+
+.navManuContainer .innerContainer .mainLinksDiv {
+  width: 100%;
+  font-size: 2.5rem;
+}
+
+.navManuContainer .innerContainer .mainLinksDiv a {
+  display: block !important;
+  margin-top: 2.7vh !important;
+  padding-top: 3vh;
+  opacity: 0;
+  text-align: center;
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+}
+
+.navManuContainer .innerContainer .restLinksDiv {
+  width: 50%;
+  float: right;
+}
+
+.navManuContainer .innerContainer .restLinksDiv .socialMedia {
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 4vh;
+  display: block;
+}
+
+.navManuContainer .innerContainer .restLinksDiv .socialMedia div {
+  text-align: center;
+  font-size: 1vw;
+  width: 60%;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  margin-left: 20%;
+  padding-bottom: 1vh;
+  margin-bottom: 1vh;
+  display: block;
+  opacity: 0;
+}
+
+.navManuContainer .innerContainer .restLinksDiv .socialMedia a {
+  width: 20%;
+  float: left;
+  font-size: 2.5vw;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  display: inline-block;
+  position: relative;
+}
+
+.navManuContainer .innerContainer .restLinksDiv .subscribeUsForm {
+  margin-top: 20vh;
+  width: 100%;
+  opacity: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1vw;
+}
+
+.navManuContainer .innerContainer .restLinksDiv .wantToKnowMore {
+  margin-top: 20vh;
+  width: 100%;
+  opacity: 0;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  font-size: 1vw;
+}
+
+.navManuContainer .innerContainer .restLinksDiv .socialMedia a:hover,
+.navManuContainer .innerContainer .restLinksDiv .socialMedia a:focus {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.navBarTrigger {
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0);
+  margin-left: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  display: inline-block;
+  height: 48px;
+  width: 48px;
+  position: fixed;
+  border-radius: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 700ms;
+  animation: navbarTriggerAnimation 1ms forwards 1ms;
+  z-index: 2 !important;
+  opacity: 0;
+  float: left;
+}
+.navBarTrigger:hover,
+.navBarTrigger:focus {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.mediaandsubscribe {
+  margin-left: 80vw;
+}
+
+.mediaTriggerContainer {
+  margin-top: 18px;
+  margin-left: 14px;
+}
+
+.mediaTrigger {
+  border-radius: 100%;
+  display: inline-block;
+  height: 48px;
+  width: 48px;
+  margin-top: 100vh;
+  border-radius: 100%;
+  background: #2557c4;
+  transition: all 700ms;
+}
+
+.navBarTriggerContainer {
+  margin-top: 18px;
+  margin-left: 13px;
+}
+
+.navBarTrigger .navBarTriggerContainer .navBarTriggerBar1 {
+  width: 17px;
+  height: 2px;
+  position: relative;
+  background: #fff;
+  transition: all 500ms;
+}
+.navBarTrigger .navBarTriggerContainer .navBarTriggerBar2 {
+  width: 27px;
+  height: 2px;
+  background: #fff;
+  margin-top: 2px;
+  transition: all 500ms;
+}
+.navBarTrigger .navBarTriggerContainer .navBarTriggerBar3 {
+  width: 21px;
+  height: 2px;
+  margin-top: 2px;
+  background: #fff;
+  transition: all 500ms;
+}
+
+.navBarTrigger .navBarTriggerContainer2 .navBarTriggerBar4 {
+  width: 21px;
+  height: 2px;
+  margin-top: -5px;
+  transform: rotate(45deg);
+  opacity: 0;
+  background: #fff;
+  float: left;
+  position: relative;
+  transition: all 500ms;
+}
+
+.navBarTrigger .navBarTriggerContainer2 .navBarTriggerBar5 {
+  width: 21px;
+  height: 2px;
+  margin-top: -5px;
+  transform: rotate(-45deg);
+  background: #fff;
+  opacity: 0;
+  float: left;
+  position: relative;
+  transition: all 500ms;
+}
+
+.navBarTrigger .navBarTriggerContainer .navBarTriggerText {
+  color: #fff;
+  float: right;
+  margin-left: 35px;
+  margin-top: -26px;
+  margin-right: 10px;
+  transition: all 500ms;
+  font-size: 15px;
+  display: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.navBarTrigger .navBarTriggerContainer .navBarTriggerText img {
+  width: 30px;
+}
+
+@keyframes navbarTriggerAnimation {
+  0% {
+    opacity: 0;
+    margin-left: -2000px;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.ball {
+  position: absolute;
+  border-radius: 100%;
+  opacity: 0.5;
+  z-index: -1 !important;
+}
+
+.ball2 {
+  position: absolute;
+  border-radius: 100%;
+}
+
+.navMenuDesigns {
+  opacity: 0;
+}
+.navMenuDesigns .Layer1 {
+  width: 5vw;
+  background: rgba(0, 0, 0, 0.1);
+  height: 5vw;
+  border-radius: 10px;
+  transform: rotate(45deg);
+  margin-left: 75vw;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+  margin-top: 80vh;
+}
+
+.navMenuDesigns .Layer2 {
+  width: 10vw;
+  background: rgba(0, 0, 0, 0.1);
+  height: 10vw;
+  border-radius: 10px;
+  transform: rotate(30deg);
+  margin-left: 80vw;
+  margin-top: -50vh;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+}
+
+.navMenuDesigns .Layer3 {
+  width: 7vw;
+  background: rgba(0, 0, 0, 0.1);
+  height: 7vw;
+  border-radius: 10px;
+  transform: rotate(10deg);
+  margin-left: 92vw;
+  margin-top: 0vh;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+}
+
+.navMenuDesigns .Layer4 {
+  width: 12vw;
+  background: rgba(0, 0, 0, 0.1);
+  height: 12vw;
+  border-radius: 10px;
+  transform: rotate(40deg);
+  margin-left: 83vw;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+  margin-top: 0vh;
+}
+.navMenuDesigns .Layer5 {
+  width: 4vw;
+  background: rgba(0, 0, 0, 0.1);
+  height: 4vw;
+  border-radius: 10px;
+  transform: rotate(60deg);
+  margin-left: 87vw;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+  margin-top: -70vh;
+}
+
+.navMenuDesigns .Layer6 {
+  width: 7vw;
+  background: rgba(0, 0, 0, 0.1);
+  height: 7vw;
+  border-radius: 10px;
+  transform: rotate(45deg);
+  margin-left: 92vw;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+  margin-top: -25vh;
+}
+
+.navMenuDesigns .Layer7 {
+  width: 12vw;
+  background: rgba(0, 0, 0, 0.1);
+  height: 12vw;
+  border-radius: 10px;
+  transform: rotate(20deg);
+  margin-left: 80vw;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+  margin-top: -35vh;
+}
+
+.navMenuDesigns .Layer8 {
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+  width: 8vw;
+  background: rgba(0, 0, 0, 0.1);
+  height: 8vw;
+  border-radius: 10px;
+  transform: rotate(60deg);
+  margin-left: 75vw;
+  margin-top: 5vh;
+}
+
+.navMenuDesigns .Layer9 {
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+  width: 8vw;
+  background: rgba(0, 0, 0, 0.1);
+  height: 8vw;
+  border-radius: 10px;
+  transform: rotate(60deg);
+  margin-left: 0vw;
+  margin-top: 5vh;
+}
+
+.navMenuDesigns .Layer10 {
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+  width: 10vw;
+  background: rgba(0, 0, 0, 0.1);
+  height: 10vw;
+  border-radius: 10px;
+  transform: rotate(45deg);
+  margin-left: 5vw;
+  margin-top: 10vh;
+}
+
+.navMenuDesigns .Layer11 {
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+  width: 5vw;
+  background: rgba(0, 0, 0, 0.1);
+  height: 5vw;
+  border-radius: 10px;
+  transform: rotate(45deg);
+  margin-left: 10vw;
+  margin-top: -70vh;
+}
+.navMenuDesigns .Layer12 {
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+  width: 7vw;
+  background: rgba(0, 0, 0, 0.1);
+  height: 7vw;
+  border-radius: 10px;
+  transform: rotate(10deg);
+  margin-left: 10vw;
+  margin-top: 10vh;
+}
+
+@media only screen and (max-width: 900px) {
+  .navBarTrigger {
+    margin-left: 15px !important;
+    margin-top: 15px !important;
+  }
+
+  .navManuContainer .innerContainer {
+    margin-left: 5vw;
+    text-align: center;
+    width: 90vw;
+    margin-right: 5vw;
+  }
+
+  .navManuContainer .innerContainer .mainLinksDiv {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .navManuContainer .innerContainer .mainLinksDiv a {
+    margin-top: 2vh !important;
+  }
+
+  .navManuContainer .innerContainer .restLinksDiv {
+    display: none;
+  }
+
+  .resContainer {
+    width: 90vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+}
